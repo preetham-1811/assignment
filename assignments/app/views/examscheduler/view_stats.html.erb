@@ -1,0 +1,150 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div class="container-fluid">
+
+<h1>User Registration Statistics</h1>
+
+  <div class="row justify content center">
+    <div class="col-md-7">
+      <h2>Users registered per month</h2>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Month</th>
+          <th scope="col">Number of users registered</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @user_per_month.each_with_index do | u,index |  %>
+          <tr>
+            <th scope="row"> <%= index+1 %></th>
+            <td><%= u[0] %></td>
+            <td><%= u[1] %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <div id="month_chart" style="width: 1000px; height: 600px;"></div>
+
+      <h2>Users registered per Year</h2>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Year</th>
+          <th scope="col">Number of users registered</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @user_per_year.each_with_index do | u,index |  %>
+          <tr>
+            <th scope="row"> <%= index+1 %></th>
+            <td><%= u[0] %></td>
+            <td><%= u[1] %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <div id="year_chart" style="width: 600px; height: 600px;"></div>
+
+      <h2>Users registered per day</h2>
+      <%= form_tag(examscheduler_user_stats_url, method: :get, remote: false, :id => 'day_form') do %>
+        <%= label_tag(:q, "Search for:") %>
+        <%= select_month(Date.today, field_name: 'register_month') %>
+        <%= select_year(2015, field_name: 'register_year') %>
+        <%= submit_tag("Check", :id => 'check_day') %>
+      <% end %>
+
+      <table class="table" id='day_table'>
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Day</th>
+          <th scope="col">Number of users registered</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @user_per_day.each_with_index do | u,index |  %>
+          <tr>
+            <th scope="row"> <%= index+1 %></th>
+            <td><%= u[0] %></td>
+            <td><%= u[1] %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <p id='noneCase' style="display: none"> No users registered in this month and year</p>
+      <div id="day_chart" style="width: 600px; height: 600px;"></div>
+
+      document.addEventListener("turbolinks:load", function() {
+
+        <%= javascript_tag :id => 'graphScript' do -%>
+          google.charts.load('current', {'packages':['bar', 'corechart']});
+
+          google.charts.setOnLoadCallback(drawMonthChart);
+          google.charts.setOnLoadCallback(drawYearChart);
+          google.charts.setOnLoadCallback(drawDayChart);
+
+          var para = document.getElementById('noneCase');
+
+
+          var dayData = JSON.parse('<%= @user_per_day.to_json.html_safe -%>');
+
+          function drawDayChart() {
+
+        <!--  alert('data is '+dayData);-->
+          if(dayData==''){
+            para.style.display = "block";
+        <!--  alert('Nee tatha');-->
+            return;
+          }
+          para.style.display = "none";
+          data = [['Day', 'Number of Users']].concat(dayData);
+          data = google.visualization.arrayToDataTable(data);
+          var options = {
+          chart: {
+          title: 'Registrations by Day',
+          }
+          };
+
+          var chart = new google.visualization.ScatterChart(document.getElementById('day_chart'));
+          chart.draw(data, options);
+          }
+
+
+          function drawMonthChart() {
+          var data = JSON.parse('<%= @user_per_month.to_json.html_safe -%>');
+          data = [['Month', 'Number of Users']].concat(data);
+          data = google.visualization.arrayToDataTable(data);
+          var options = {
+          chart: {
+          title: 'Registrations by Month',
+          }
+          };
+
+          var chart = new google.charts.Bar(document.getElementById('month_chart'));
+          chart.draw(data, google.charts.Bar.convertOptions(options));
+          }
+
+
+          function drawYearChart() {
+          var data = JSON.parse('<%= @user_per_year.to_json.html_safe -%>');
+          data = [['Year', 'Number of Users']].concat(data);
+          data = google.visualization.arrayToDataTable(data);
+          var options = {
+          chart: {
+          title: 'Registrations by Year',
+          }
+          };
+
+          var chart = new google.visualization.PieChart(document.getElementById('year_chart'));
+          chart.draw(data, options);
+          }
+
+        <% end -%>
+    </div>
+  </div>
+</div>

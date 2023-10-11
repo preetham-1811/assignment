@@ -1,0 +1,96 @@
+<div class="container-fluid">
+	<div class="row"><br>
+		<div class="col-md-3 col-12">
+			<h2>Quotations</h2>
+		</div>
+		<div class="col-md-6 col-12"><br>
+			<%= form_for (:import_xml), :url => { :action => :importxml }, method: "get" do |f| %>
+			<%= text_field_tag(:page_link, nil, :placeholder => 'Link to xml page') %>
+			<%= submit_tag("Import") %>
+			<% end %>
+		</div>
+		<div class="col-md-3 col-12"><br>
+			<%= link_to 'SEARCH',ps2_quotationssearch_path, class: 'btn btn-outline-info' %>
+			<%= link_to 'XML', ps2_quotations_path + ".xml", class: 'btn btn-outline-info' %>
+			<%= link_to 'JSON', ps2_quotations_path + ".json", class: 'btn btn-outline-info' %>
+		</div>
+	</div>
+
+<hr>
+
+	<div class="row">
+		<div class="col-md-2 col-12">
+			<% if not cookies[:ids].blank? %>
+			  	<%= link_to 'Erase My Personalisation', {:clear => true}, class: 'btn btn-outline-primary' %>
+			<% end %>
+			<br>
+			<br><br>
+			<% if params[:sort_by] == "date" %>
+				<%= link_to "Sort by category", {:action => :quotations, :sort_by => :category}, class: 'btn btn-outline-warning' %>
+			<% else %>
+				<%= link_to "Sort by date", {:action => :quotations, :sort_by => :date}, class: 'btn btn-outline-warning' %>
+			<% end %>
+		</div>
+		<div class="col-md-10 col-12">
+			<ul>
+				<% for quotation in @quotations %>
+					<li><%= h quotation.author_name %>: <%= h quotation.quote %> - <%= link_to ' Kill', :id => quotation.id %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+
+<br/>
+	<div class="row">
+		<div class="col-md-6">
+			
+		</div>
+	</div>
+
+<hr/>
+
+	<div class="row">
+		<div class="col-md-6 col-12">
+
+			<h2>New quotation</h2>
+
+			<%= form_for (@quotation), :url => { :action => :quotations } do |form| %>
+				<% @quotation.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			    <% end %>
+				<fieldset>
+					<legend>Enter details</legend>
+					<div class="form_row">
+						<label>
+							<%= form.label :author_name %>
+							<%= form.text_field :author_name, :size => 20, :maxlength => 40, :required => true %>
+						</label>
+					</div>
+				    <div class="form_row">
+				    	<label>
+							<%= form.label :category %>
+							<%= form.select :category, Quotation.distinct.pluck(:category) %>
+						</label>
+				    </div>
+					<div class="form_row">
+						<label>
+							<%= form.label :new_category %>
+							<%= text_field :new_category, :id %>
+						</label>
+					</div>
+					<div class="form_row">
+						<label>
+							<%= form.label :quote %>
+							<%= form.text_area :quote, :rows => 2, :cols => 40, :maxlength => 500, :required => true %>
+						</label>
+					</div>
+				</fieldset>
+					<div class="form_row mt-3">
+						<%= form.submit 'Create' %>
+					</div>
+			<% end %>
+		</div>
+	</div>
+<hr>
+	<%= link_to "BACK", ps2_index_path, class: 'btn btn-outline-warning' %>
+</div>

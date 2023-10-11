@@ -1,0 +1,871 @@
+<div class="container-fluid"> <!-- if you want this to be end to end just make it as container-fluid -->
+  	<div class="row">
+		<div class="col-md-10 col-12">
+			<h1>Problem Set 2</h1>
+		</div>
+		<div class="col-md-2 col-12 mt-3">
+			<u><b><%= link_to 'Back to Assignments' , home_assignments_path, class: 'btn btn-warning' %></b></u>
+		</div>
+	</div>
+</div>
+	<hr>
+<div class="container" style="border-left: 6px solid #75D1D1;">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">1</span>  Quotation - <%= link_to 'Quotations' , ps2_quotations_path %> </h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">Created the database and added the content using web interface. If using rails console, id is set as primary key with auto increment attribute.
+            		The console when creating a new data row, checks the validations first, then lets the sql deal with id and return the id.</p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+		<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">2</span>  Select box for categories and allow to create new category</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">Used rails ORM to get the distinct categories and form.select in view to create a select for the categories.
+		            Created a new category input text field to allow users to create new category.
+		            If new category is given, it is chosen, otherwise select category is chosen.
+		            <h5>References</h5>
+		            1. <%= link_to "Choosing distinct category", "https://stackoverflow.com/questions/8369812/rails-how-can-i-get-unique-values-from-column"%></p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+		<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">3</span>  Search Box</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">Created a search box using rails form helpers. The form is submitted to controller action with the query as parameter using get method.
+            		All the quotes with the search query as a word in the quote or in the author name are retrieved (along with personalised filters) and displayed.</p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">4</span>  Kill Switch</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">Gave a kill switch to each quote which when clicked stores the id of quote in the cookie string with space separation.
+            		The Action control command to retrieve the quotes filters out the quotes from the database that are stored in the cookies.
+            		Cookies are maintained to survive browser restart by using 'permanent' method which sets the timeout of the cookie to 20 years from now.
+            		"erase my personalization" appears when a user kills atleast 1 quote and when clicked on it, removes the personalization by deleting the cookie.
+            		<h5>References</h5>
+		            1.<%= link_to "Making cookies to survive browser restart", "http://www.xyzpub.com/en/ruby-on-rails/3.2/cookies.html" %><br>
+		            2.<%= link_to "Getting ids using array", "https://stackoverflow.com/questions/1441791/how-to-select-where-id-in-array-rails-activerecord-without-exception" %>
+            		<br>Also used "not" command along with where to filter out<br></p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">5</span>  Export to JSON and XML formats</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">Added format support to xml and json format using respond to format. XML was giving hash values instead of actual data. Hence mapped to json format and converted it to xml.
+            		<h5>References</h5>
+            		1.<%= link_to "Rendering XML format", "https://stackoverflow.com/questions/57103129/rails-rendering-to-xml-not-showing-models-fields" %>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">6</span>  Importing data from XML</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">Added a form that takes other servers xml format link and adds the data to the database.
+		            Used nokogiri gem to retrieve the xml file from the link and then used css selector to get the tags(nodes) for table columns
+		            and added each data row recursively.
+		            <h5>References</h5>
+		            1.<%= link_to "Importing xml data into database", "https://stackoverflow.com/questions/11369911/importing-an-xml-document-into-a-rails-database/11370636" %></p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">7</span>  Load data to database from text file</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">7.1 Prepare the create table sql file. <br><br>
+
+						$ cat ps2-7.sql
+						<p>
+						create table my_stocks ( <br>
+						symbol	varchar(20) not null, <br>
+						n_shares integer not null, <br>
+						date_acquired date not null <br>
+						);
+						</p>
+						To create the table from above sql file, use psql command
+						<br>
+						$ psql ass2 < ps2-7.sql <br><br>
+						7.2 Loading the data into my_stocks table: <br>
+						ass2=# copy my_stocks (symbol, n_shares, date_acquired) from 'mystock_data.txt' with (format text, delimiter E'\t') ; <br><br>
+
+						ass2=# select * from my_stocks; <br>
+						symbol   | n_shares | date_acquired  <br>
+						-----------+----------+--------------- <br>
+						MRF       |      200 | 2020-09-13 <br>
+						NESTLEIND |      300 | 2020-08-13 <br>
+						PTT       |      400 | 2020-09-13 <br>
+						PTTGC     |      500 | 2020-09-13 <br>
+						RBULL     |       20 | 2019-10-01 <br>
+						(5 rows) <br>
+						<br>
+						References : <Br>
+						<a href="https://www.w3schools.com/sql/sql_delete.asp">https://www.w3schools.com/sql/sql_delete.asp</a>
+						 <br>
+						<a href="https://www.postgresql.org/docs/12/sql-copy.html">https://www.postgresql.org/docs/12/sql-copy.html</a>
+					</p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">8</span>  Copying data from one table to another</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">8.1 Create stock_prices table from my_stocks table with put 30 as a default value 	to price's filed. <br>
+						<br>
+						create table stock_prices as <br>
+						select symbol, current_date as quote_date ,30 as price<br>
+						from my_stocks;<br>
+						<br>
+						ass2=# select * from stock_prices; <br>
+						symbol   | quote_date | price  <br>
+						-----------+------------+-------<br>
+						MRF       | 2020-09-15 |    30<br>
+						NESTLEIND | 2020-09-15 |    30<br>
+						PTT       | 2020-09-15 |    30<br>
+						PTTGC     | 2020-09-15 |    30<br>
+						RBULL     | 2020-09-15 |    30<br>
+						(5 rows)<br><br>
+
+						8.2 Create newly_acquired_stocks and copy some data from my_stocks table<br>
+						<br>
+						$ cat ps2-8.sql <br>
+						create table newly_acquired_stocks (<br>
+						symbol varchar(20) not null,<br>
+						n_shares integer not null,<br>
+						date_acquired date not null<br>
+						);<br>
+						<br>
+						$ psql ass2 < ps2-8.sql<br>
+						CREATE TABLE<br>
+						<br>
+						ass2=# insert into newly_acquired_stocks (symbol, n_shares, date_acquired) select symbol, n_shares, date_acquired from my_stocks limit 3; <br>
+						<br>
+						ass2=# select * from newly_acquired_stocks;<br>
+						symbol   | n_shares | date_acquired<br>
+						-----------+----------+---------------<br>
+						MRF       |      200 | 2020-09-13<br>
+						NESTLEIND |      300 | 2020-08-13<br>
+						PTT       |      400 | 2020-09-13<br>
+						(3 rows)<br>
+						<br>
+						References:<br>
+						<a href="https://learnsql.com/cookbook/how-to-get-the-current-date-in-postgresql/">https://learnsql.com/cookbook/how-to-get-the-current-date-in-postgresql/</a>
+					</p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">9</span>  JOIN</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">Join use for combine rows from two or ore tables based on a related column between them.
+						In this case we joined the my_stocks table and stock_prices table using symbol as a link. The sql to join is shown below<br>
+						<br>
+
+						select my_stocks.symbol, my_stocks.n_shares, stock_prices.price, my_stocks.n_shares*stock_prices.price as value<br>
+						from my_stocks<br>
+						join  stock_prices on stock_prices.symbol= my_stocks.symbol;<br>
+						<br>
+						symbol   | n_shares | price | value<br>
+						-----------+----------+-------+-------<br>
+						MRF       |      200 |    30 |  6000<br>
+						NESTLEIND |      300 |    30 |  9000<br>
+						PTT       |      400 |    30 | 12000<br>
+						PTTGC     |      500 |    30 | 15000<br>
+						RBULL     |       20 |    30 |   600<br>
+						(5 rows)<br>
+						<br>
+						References:<br>
+						<a href="https://www.w3schools.com/sql/sql_join.asp">https://www.w3schools.com/sql/sql_join.asp</a>
+					</p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">10</span>  Outer JOIN</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">10.1 Insert a record to  my_stocks using this SQL<br><br>
+
+						insert into my_stocks (symbol, n_shares, date_acquired) <br>
+						values ( 'TSLA' , 500, '09/15/2020');<br><br>
+
+						10.2 Show those table with join<br><br>
+
+						select my_stocks.symbol, my_stocks.n_shares, stock_prices.price, my_stocks.n_shares*stock_prices.price as value<br>
+						from my_stocks<br>
+						join  stock_prices on stock_prices.symbol= my_stocks.symbol;<br>
+						symbol   | n_shares | price | value<br>
+						-----------+----------+-------+-------<br>
+						MRF       |      200 |    30 |  6000<br>
+						NESTLEIND |      300 |    30 |  9000<br>
+						PTT       |      400 |    30 | 12000<br>
+						PTTGC     |      500 |    30 | 15000<br>
+						RBULL     |       20 |    30 |   600<br>
+						<br>
+
+						There are no new record shown with join.<br>
+						<br>
+						10.3 Using full join to query all stock<br><br>
+						ass2=# select my_stocks.symbol, my_stocks.n_shares, stock_prices.price, my_stocks.n_shares*stock_prices.price as value<br>
+						from my_stocks<br>
+						full join  stock_prices on stock_prices.symbol= my_stocks.symbol;<br>
+						<br>
+						symbol   | n_shares | price | value<br>
+						-----------+----------+-------+-------<br>
+						MRF       |      200 |    30 |  6000<br>
+						NESTLEIND |      300 |    30 |  9000<br>
+						PTT       |      400 |    30 | 12000<br>
+						PTTGC     |      500 |    30 | 15000<br>
+						RBULL     |       20 |    30 |   600<br>
+						TSLA      |      500 |       |<br>
+
+						References:<br>
+						<a href="https://www.w3resource.com/PostgreSQL/postgresql-full-outer-join.php">https://www.w3resource.com/PostgreSQL/postgresql-full-outer-join.php</a>
+						<br>
+					</p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">11</span>  PL/SQL</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">11.1 Create a sum_ascii function<br><br>
+
+						ass2=#  select sum_ascii('IBM');<br>
+						sum_ascii<br>
+						-----------<br>
+						216<br>
+						<br>
+						11.2 update all stock price using sum_ascii function<br>
+						<br>
+						ass2=# update stock_prices<br>
+						set price = sum_ascii(symbol);<br><br>
+
+						show the result of stock_prices<br><br>
+
+						ass2=# select * from stock_prices;<br>
+						symbol   | quote_date | price<br>
+						-----------+------------+-------<br>
+						MRF       | 2020-09-15 |   229<br>
+						NESTLEIND | 2020-09-15 |   678<br>
+						PTT       | 2020-09-15 |   248<br>
+						PTTGC     | 2020-09-15 |   386<br>
+						RBULL     | 2020-09-15 |   385<br>
+						(5 rows)<br>
+
+						<br>
+						References:<br>
+						<a href="https://www.postgresql.org/docs/10/plpgsql.html">https://www.postgresql.org/docs/10/plpgsql.html</a>
+						<a href="https://www.enterprisedb.com/postgres-tutorials/how-develop-user-defined-function-postgresql-stored-procedures">https://www.enterprisedb.com/postgres-tutorials/how-develop-user-defined-function-postgresql-stored-procedures</a>
+						<a href="https://www.postgresqltutorial.com/postgresql-ascii/" >https://www.postgresqltutorial.com/postgresql-ascii/</a>
+
+						<a href="https://www.tutorialspoint.com/postgresql/postgresql_functions.htm" >https://www.tutorialspoint.com/postgresql/postgresql_functions.htm</a>
+						<a href="https://stackoverflow.com/questions/24542219/how-to-iterate-through-chars-of-a-string-in-postgresql" >https://stackoverflow.com/questions/24542219/how-to-iterate-through-chars-of-a-string-in-postgresql</a>
+						<a href="https://www.enterprisedb.com/postgres-tutorials/everything-you-need-know-about-postgres-stored-procedures-and-functions" >https://www.enterprisedb.com/postgres-tutorials/everything-you-need-know-about-postgres-stored-procedures-and-functions</a>
+					</p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">12</span>  Buy more for Winners</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">
+						<pre>
+					        1. Getting average price of holdings
+
+					        ass2=# select AVG(price) from stock_prices ;
+					                 avg
+					        ----------------------
+					         385.2000000000000000
+
+
+					        2. Doubling my holdings that are greater than average
+
+					        ass2=# insert into my_stocks(symbol, n_shares, date_acquired)
+					        select m.symbol, m.n_shares, current_date from my_stocks as m where m.symbol
+					         IN (select s.symbol from stock_prices as s where s.price > 385.2);
+					        INSERT 0 2
+
+					        ass2=# select * from my_stocks ;
+					          symbol   | n_shares | date_acquired
+					        -----------+----------+---------------
+					         MRF       |      200 | 2020-09-13
+					         NESTLEIND |      300 | 2020-08-13
+					         PTT       |      400 | 2020-09-13
+					         PTTGC     |      500 | 2020-09-13
+					         RBULL     |       20 | 2019-10-01
+					         TSLA      |      500 | 2020-09-15
+					         NESTLEIND |      300 | 2020-09-17
+					         PTTGC     |      500 | 2020-09-17
+					        (8 rows)
+
+
+					        3. Outer join results
+
+					        ass2=# select m.symbol, m.n_shares, price from my_stocks as
+					        m FULL JOIN stock_prices as s on m.symbol = s.symbol;
+					          symbol   | n_shares | price
+					        -----------+----------+-------
+					         MRF       |      200 |   229
+					         NESTLEIND |      300 |   678
+					         PTT       |      400 |   248
+					         PTTGC     |      500 |   386
+					         RBULL     |       20 |   385
+					         TSLA      |      500 |
+					         NESTLEIND |      300 |   678
+					         PTTGC     |      500 |   386
+					        (8 rows)
+
+
+
+					        4. Total shares held
+
+					        ass2=# select symbol, sum(n_shares) as total_shares from my_stocks group by symbol;
+					          symbol   | total_shares
+					        -----------+--------------
+					         NESTLEIND |          600
+					         RBULL     |           20
+					         PTT       |          400
+					         PTTGC     |         1000
+					         MRF       |          200
+					         TSLA      |          500
+					        (6 rows)
+
+
+					        5. Total value held
+
+					        ass2=# select m.symbol, sum(s.price*m.n_shares) as total_value from my_stocks as m
+					        ass2-# INNER JOIN stock_prices as s on m.symbol=s.symbol
+					        ass2-# group by m.symbol;
+					          symbol   | total_value
+					        -----------+-------------
+					         MRF       |       45800
+					         NESTLEIND |      406800
+					         PTT       |       99200
+					         PTTGC     |      386000
+					         RBULL     |        7700
+					        (5 rows)
+
+
+					        6. total shares, total value (winners)
+
+					        ass2=# select m.symbol, sum(m.n_shares) as total_shares,sum(s.price*m.n_shares) as
+					        total_value from my_stocks as m
+					        ass2-# INNER JOIN stock_prices as s on m.symbol=s.symbol
+					        ass2-# group by m.symbol having count(*) >= 2;
+					          symbol   | total_shares | total_value
+					        -----------+--------------+-------------
+					         NESTLEIND |          600 |      406800
+					         PTTGC     |         1000 |      386000
+					        (2 rows)
+
+					    </pre>
+
+			            <h5>References</h5>
+			            1.<%= link_to 'Single insert statement to double the shares', "https://stackoverflow.com/questions/25969/insert-into-values-select-from" %><br>
+			            2.<%= link_to 'Getting current time', "https://www.javatpoint.com/postgresql-date-time" %>
+					</p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">13</span>  Encapsulate your queries with a view</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify">
+				    	<pre>
+							A View that encapsulates the winners
+
+							ass2=# create view stocks_i_like as select m.symbol, sum(m.n_shares) as
+							total_shares,sum(s.price*m.n_shares) as
+							total_value from my_stocks as m
+							INNER JOIN stock_prices as s on m.symbol=s.symbol
+							group by m.symbol having count(*) >= 2;
+
+							ass2=# select * from stocks_i_like ;
+							symbol   | total_shares | total_value
+							-----------+--------------+-------------
+							NESTLEIND |          600 |      406800
+							PTTGC     |         1000 |      386000
+							(2 rows)
+					    </pre>
+					            <h5>References</h5>
+					            1.<%= link_to 'Creating a view', "https://www.w3schools.com/sql/sql_view.asp"%>
+					</p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">...</span>  Resources</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify"><%= link_to "Click Me", "/ps2_resources/ps2_resources.txt" %></p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<!--<table class="table table-bordered" >
+	    <thead>
+	      <tr>
+	      	<th style="width:50px;text-align: center;">S.No</th>
+	        <th style="width:200px;text-align: center;">Problem</th>
+	        <th style="text-align: center;">Solution</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	      	<td style="text-align: center;">1</td>
+	        <td>Quotation</td>
+	        <td>Created the database and added the content using web interface. If using rails console, id is set as primary key with auto increment attribute.
+            The console when creating a new data row, checks the validations first, then lets the sql deal with id and return the id. </td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">2</td>
+	        <td>Select box for categories and allow to create new category</td>
+	        <td>Used rails ORM to get the distinct categories and form.select in view to create a select for the categories.
+            Created a new category input text field to allow users to create new category.
+            If new category is given, it is chosen, otherwise select category is chosen.
+            <h5>References</h5>
+            1. <%= link_to "Choosing distinct category", "https://stackoverflow.com/questions/8369812/rails-how-can-i-get-unique-values-from-column"%>
+          </td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">3</td>
+	        <td>Search Box</td>
+	        <td>Created a search box using rails form helpers. The form is submitted to controller action with the query as parameter using get method.
+            All the quotes with the search query as a word in the quote or in the author name are retrieved (along with personalised filters) and displayed.
+          </td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">4</td>
+	        <td>Kill switch</td>
+	        <td>Gave a kill switch to each quote which when clicked stores the id of quote in the cookie string with space separation.
+            The Action control command to retrieve the quotes filters out the quotes from the database that are stored in the cookies.
+            Cookies are maintained to survive browser restart by using 'permanent' method which sets the timeout of the cookie to 20 years from now.
+            "erase my personalization" appears when a user kills atleast 1 quote and when clicked on it, removes the personalization by deleting the cookie.
+            <h5>References</h5>
+            1.<%= link_to "Making cookies to survive browser restart", "http://www.xyzpub.com/en/ruby-on-rails/3.2/cookies.html" %><br>
+            2.<%= link_to "Getting ids using array", "https://stackoverflow.com/questions/1441791/how-to-select-where-id-in-array-rails-activerecord-without-exception" %>
+            <br>Also used "not" command along with where to filter out<br>
+          </td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">5</td>
+	        <td>Export to XML and JSON formats</td>
+	        <td>Added format support to xml and json format using respond to format. XML was giving hash values instead of actual data.
+          Hence mapped to json format and converted it to xml.
+            <h5>References</h5>
+            1.<%= link_to "Rendering XML format", "https://stackoverflow.com/questions/57103129/rails-rendering-to-xml-not-showing-models-fields" %>
+          </td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">6</td>
+	        <td>Importing data from xml</td>
+	        <td>Added a form that takes other servers xml format link and adds the data to the database.
+            Used nokogiri gem to retrieve the xml file from the link and then used css selector to get the tags(nodes) for table columns
+            and added each data row recursively.
+            <h5>References</h5>
+            1.<%= link_to "Importing xml data into database", "https://stackoverflow.com/questions/11369911/importing-an-xml-document-into-a-rails-database/11370636" %>
+          </td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">7</td>
+	        <td>Load data to database from text file</td>
+					<td>7.1 Prepare the create table sql file. <br><br>
+
+						$ cat ps2-7.sql
+						<p>
+						create table my_stocks ( <br>
+						symbol	varchar(20) not null, <br>
+						n_shares integer not null, <br>
+						date_acquired date not null <br>
+						);
+						</p>
+						To create the table from above sql file, use psql command
+						<br>
+						$ psql ass2 < ps2-7.sql <br><br>
+						7.2 Loading the data into my_stocks table: <br>
+						ass2=# copy my_stocks (symbol, n_shares, date_acquired) from 'mystock_data.txt' with (format text, delimiter E'\t') ; <br><br>
+
+						ass2=# select * from my_stocks; <br>
+						symbol   | n_shares | date_acquired  <br>
+						-----------+----------+--------------- <br>
+						MRF       |      200 | 2020-09-13 <br>
+						NESTLEIND |      300 | 2020-08-13 <br>
+						PTT       |      400 | 2020-09-13 <br>
+						PTTGC     |      500 | 2020-09-13 <br>
+						RBULL     |       20 | 2019-10-01 <br>
+						(5 rows) <br>
+						<br>
+						References : <Br>
+						<a href="https://www.w3schools.com/sql/sql_delete.asp">https://www.w3schools.com/sql/sql_delete.asp</a>
+						 <br>
+						<a href="https://www.postgresql.org/docs/12/sql-copy.html">https://www.postgresql.org/docs/12/sql-copy.html</a>
+
+					</td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">8</td>
+	        <td>Copying Data from One Table to Another:</td>
+	        <td>8.1 Create stock_prices table from my_stocks table with put 30 as a default value to price's filed. <br>
+						<br>
+						create table stock_prices as <br>
+						select symbol, current_date as quote_date ,30 as price<br>
+						from my_stocks;<br>
+						<br>
+						ass2=# select * from stock_prices; <br>
+						symbol   | quote_date | price  <br>
+						-----------+------------+-------<br>
+						MRF       | 2020-09-15 |    30<br>
+						NESTLEIND | 2020-09-15 |    30<br>
+						PTT       | 2020-09-15 |    30<br>
+						PTTGC     | 2020-09-15 |    30<br>
+						RBULL     | 2020-09-15 |    30<br>
+						(5 rows)<br><br>
+
+						8.2 Create newly_acquired_stocks and copy some data from my_stocks table<br>
+						<br>
+						$ cat ps2-8.sql <br>
+						create table newly_acquired_stocks (<br>
+						symbol varchar(20) not null,<br>
+						n_shares integer not null,<br>
+						date_acquired date not null<br>
+						);<br>
+						<br>
+						$ psql ass2 < ps2-8.sql<br>
+						CREATE TABLE<br>
+						<br>
+						ass2=# insert into newly_acquired_stocks (symbol, n_shares, date_acquired) select symbol, n_shares, date_acquired from my_stocks limit 3; <br>
+						<br>
+						ass2=# select * from newly_acquired_stocks;<br>
+						symbol   | n_shares | date_acquired<br>
+						-----------+----------+---------------<br>
+						MRF       |      200 | 2020-09-13<br>
+						NESTLEIND |      300 | 2020-08-13<br>
+						PTT       |      400 | 2020-09-13<br>
+						(3 rows)<br>
+						<br>
+						References:<br>
+						<a href="https://learnsql.com/cookbook/how-to-get-the-current-date-in-postgresql/">https://learnsql.com/cookbook/how-to-get-the-current-date-in-postgresql/</a>
+					</td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">9</td>
+	        <td>JOIN</td>
+	        <td>Join use for combine rows from two or ore tables based on a related column between them.
+						In this case we joined the my_stocks table and stock_prices table using symbol as a link. The sql to join is shown below<br>
+						<br>
+
+						select my_stocks.symbol, my_stocks.n_shares, stock_prices.price, my_stocks.n_shares*stock_prices.price as value<br>
+						from my_stocks<br>
+						join  stock_prices on stock_prices.symbol= my_stocks.symbol;<br>
+						<br>
+						symbol   | n_shares | price | value<br>
+						-----------+----------+-------+-------<br>
+						MRF       |      200 |    30 |  6000<br>
+						NESTLEIND |      300 |    30 |  9000<br>
+						PTT       |      400 |    30 | 12000<br>
+						PTTGC     |      500 |    30 | 15000<br>
+						RBULL     |       20 |    30 |   600<br>
+						(5 rows)<br>
+						<br>
+						References:<br>
+						<a href="https://www.w3schools.com/sql/sql_join.asp">https://www.w3schools.com/sql/sql_join.asp</a>
+					</td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">10</td>
+	        <td>OUTER JOIN</td>
+	        <td>
+						10.1 Insert a record to  my_stocks using this SQL<br><br>
+
+						insert into my_stocks (symbol, n_shares, date_acquired) <br>
+						values ( 'TSLA' , 500, '09/15/2020');<br><br>
+
+						10.2 Show those table with join<br><br>
+
+						select my_stocks.symbol, my_stocks.n_shares, stock_prices.price, my_stocks.n_shares*stock_prices.price as value<br>
+						from my_stocks<br>
+						join  stock_prices on stock_prices.symbol= my_stocks.symbol;<br>
+						symbol   | n_shares | price | value<br>
+						-----------+----------+-------+-------<br>
+						MRF       |      200 |    30 |  6000<br>
+						NESTLEIND |      300 |    30 |  9000<br>
+						PTT       |      400 |    30 | 12000<br>
+						PTTGC     |      500 |    30 | 15000<br>
+						RBULL     |       20 |    30 |   600<br>
+						<br>
+
+						There are no new record shown with join.<br>
+						<br>
+						10.3 Using full join to query all stock<br><br>
+						ass2=# select my_stocks.symbol, my_stocks.n_shares, stock_prices.price, my_stocks.n_shares*stock_prices.price as value<br>
+						from my_stocks<br>
+						full join  stock_prices on stock_prices.symbol= my_stocks.symbol;<br>
+						<br>
+						symbol   | n_shares | price | value<br>
+						-----------+----------+-------+-------<br>
+						MRF       |      200 |    30 |  6000<br>
+						NESTLEIND |      300 |    30 |  9000<br>
+						PTT       |      400 |    30 | 12000<br>
+						PTTGC     |      500 |    30 | 15000<br>
+						RBULL     |       20 |    30 |   600<br>
+						TSLA      |      500 |       |<br>
+
+						References:<br>
+						<a href="https://www.w3resource.com/PostgreSQL/postgresql-full-outer-join.php">https://www.w3resource.com/PostgreSQL/postgresql-full-outer-join.php</a>
+						<br>
+					</td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">11</td>
+	        <td>PL/SQL</td>
+	        <td>
+						11.1 Create a sum_ascii function<br><br>
+
+						ass2=#  select sum_ascii('IBM');<br>
+						sum_ascii<br>
+						-----------<br>
+						216<br>
+						<br>
+						11.2 update all stock price using sum_ascii function<br>
+						<br>
+						ass2=# update stock_prices<br>
+						set price = sum_ascii(symbol);<br><br>
+
+						show the result of stock_prices<br><br>
+
+						ass2=# select * from stock_prices;<br>
+						symbol   | quote_date | price<br>
+						-----------+------------+-------<br>
+						MRF       | 2020-09-15 |   229<br>
+						NESTLEIND | 2020-09-15 |   678<br>
+						PTT       | 2020-09-15 |   248<br>
+						PTTGC     | 2020-09-15 |   386<br>
+						RBULL     | 2020-09-15 |   385<br>
+						(5 rows)<br>
+
+						<br>
+						References:<br>
+						<a href="https://www.postgresql.org/docs/10/plpgsql.html">https://www.postgresql.org/docs/10/plpgsql.html</a>
+						<a href="https://www.enterprisedb.com/postgres-tutorials/how-develop-user-defined-function-postgresql-stored-procedures">https://www.enterprisedb.com/postgres-tutorials/how-develop-user-defined-function-postgresql-stored-procedures</a>
+						<a href="https://www.postgresqltutorial.com/postgresql-ascii/" >https://www.postgresqltutorial.com/postgresql-ascii/</a>
+
+						<a href="https://www.tutorialspoint.com/postgresql/postgresql_functions.htm" >https://www.tutorialspoint.com/postgresql/postgresql_functions.htm</a>
+						<a href="https://stackoverflow.com/questions/24542219/how-to-iterate-through-chars-of-a-string-in-postgresql" >https://stackoverflow.com/questions/24542219/how-to-iterate-through-chars-of-a-string-in-postgresql</a>
+						<a href="https://www.enterprisedb.com/postgres-tutorials/everything-you-need-know-about-postgres-stored-procedures-and-functions" >https://www.enterprisedb.com/postgres-tutorials/everything-you-need-know-about-postgres-stored-procedures-and-functions</a>
+					</td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">12</td>
+	        <td>Buy More of the Winners</td>
+	        <td>
+      <pre>
+        1. Getting average price of holdings
+
+        ass2=# select AVG(price) from stock_prices ;
+                 avg
+        ----------------------
+         385.2000000000000000
+
+
+        2. Doubling my holdings that are greater than average
+
+        ass2=# insert into my_stocks(symbol, n_shares, date_acquired)
+        select m.symbol, m.n_shares, current_date from my_stocks as m where m.symbol
+         IN (select s.symbol from stock_prices as s where s.price > 385.2);
+        INSERT 0 2
+
+        ass2=# select * from my_stocks ;
+          symbol   | n_shares | date_acquired
+        -----------+----------+---------------
+         MRF       |      200 | 2020-09-13
+         NESTLEIND |      300 | 2020-08-13
+         PTT       |      400 | 2020-09-13
+         PTTGC     |      500 | 2020-09-13
+         RBULL     |       20 | 2019-10-01
+         TSLA      |      500 | 2020-09-15
+         NESTLEIND |      300 | 2020-09-17
+         PTTGC     |      500 | 2020-09-17
+        (8 rows)
+
+
+        3. Outer join results
+
+        ass2=# select m.symbol, m.n_shares, price from my_stocks as
+        m FULL JOIN stock_prices as s on m.symbol = s.symbol;
+          symbol   | n_shares | price
+        -----------+----------+-------
+         MRF       |      200 |   229
+         NESTLEIND |      300 |   678
+         PTT       |      400 |   248
+         PTTGC     |      500 |   386
+         RBULL     |       20 |   385
+         TSLA      |      500 |
+         NESTLEIND |      300 |   678
+         PTTGC     |      500 |   386
+        (8 rows)
+
+
+
+        4. Total shares held
+
+        ass2=# select symbol, sum(n_shares) as total_shares from my_stocks group by symbol;
+          symbol   | total_shares
+        -----------+--------------
+         NESTLEIND |          600
+         RBULL     |           20
+         PTT       |          400
+         PTTGC     |         1000
+         MRF       |          200
+         TSLA      |          500
+        (6 rows)
+
+
+        5. Total value held
+
+        ass2=# select m.symbol, sum(s.price*m.n_shares) as total_value from my_stocks as m
+        ass2-# INNER JOIN stock_prices as s on m.symbol=s.symbol
+        ass2-# group by m.symbol;
+          symbol   | total_value
+        -----------+-------------
+         MRF       |       45800
+         NESTLEIND |      406800
+         PTT       |       99200
+         PTTGC     |      386000
+         RBULL     |        7700
+        (5 rows)
+
+
+        6. total shares, total value (winners)
+
+        ass2=# select m.symbol, sum(m.n_shares) as total_shares,sum(s.price*m.n_shares) as
+        total_value from my_stocks as m
+        ass2-# INNER JOIN stock_prices as s on m.symbol=s.symbol
+        ass2-# group by m.symbol having count(*) >= 2;
+          symbol   | total_shares | total_value
+        -----------+--------------+-------------
+         NESTLEIND |          600 |      406800
+         PTTGC     |         1000 |      386000
+        (2 rows)
+
+      </pre>
+            <h5>References</h5>
+            1.<%= link_to 'Single insert statement to double the shares', "https://stackoverflow.com/questions/25969/insert-into-values-select-from" %><br>
+            2.<%= link_to 'Getting current time', "https://www.javatpoint.com/postgresql-date-time" %>
+          </td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">13</td>
+	        <td>Encapsulate your queries with a view:</td>
+	        <td>
+    <pre>
+      A View that encapsulates the winners
+
+      ass2=# create view stocks_i_like as select m.symbol, sum(m.n_shares) as
+      total_shares,sum(s.price*m.n_shares) as
+      total_value from my_stocks as m
+      INNER JOIN stock_prices as s on m.symbol=s.symbol
+      group by m.symbol having count(*) >= 2;
+
+      ass2=# select * from stocks_i_like ;
+        symbol   | total_shares | total_value
+      -----------+--------------+-------------
+       NESTLEIND |          600 |      406800
+       PTTGC     |         1000 |      386000
+      (2 rows)
+    </pre>
+            <h5>References</h5>
+            1.<%= link_to 'Creating a view', "https://www.w3schools.com/sql/sql_view.asp"%>
+          </td>
+	      </tr>
+				<tr>
+					<td style="text-align: center;"></td>
+					<td>Resources</td>
+					<td><%= link_to "here", "/ps2_resources/ps2_resources.txt" %></td>
+				</tr>
+	    </tbody>
+  	</table>
+</div> -->

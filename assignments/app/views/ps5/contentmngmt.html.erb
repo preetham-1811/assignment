@@ -1,0 +1,178 @@
+<div class="container-fluid">
+    <div class="row">
+		<div class="col-lg-9 col-md-9 col-12">
+			<h1><u><i><center>Content Management</center></i></u></h1>
+		</div>
+		<div class="col-lg-3 col-md-3 col-12"><br>
+			<u><b><center><%= link_to 'Back' , home_project_path, class: 'btn btn-warning' %></center></b></u>
+		</div>
+	</div>
+	<hr>
+    <div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+                    <h4 class="card-title text-justify"><b>Q. Think about how to classify each of the types of content on your site. 
+                    Articles, comments on articles, news items, questions and answers, documents to be approved or rejected with comments, and so on. 
+                    Each type of content will require a different flavor of data model and moderation/approval/versioning process. </b></h4>
+			  	</div>
+			  	<div class="card-body">
+					<h4 class="card-text"><b>Ans:</b> There is only one main section for our project that is the Displaying of the exam scheduled for the students where only
+					the admin is allowed to do the CRUD operations and others can only view the Information.
+					<table class="table">
+					<thead class="thead-dark">
+						<tr>
+						<th scope="col">#</th>
+						<th scope="col">Exams Schedule</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						<th scope="row">1</th>
+						<td>Will display the Schedule of all the exams in Course Codes</td>
+						</tr>
+						<tr>
+						<th scope="row">2</th>
+						<td>Displaying Course titles for the course codes</td>
+						</tr>
+						<tr>
+						<th scope="row">3</th>
+						<td>Displaying which course belongs to which School</td>
+						</tr>
+						<tr>
+						<th scope="row">4</th>
+						<td>Displaying the Room number</td>
+						</tr>
+					</tbody>
+					</table>
+					</h4>
+          		</div>
+        	</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 1 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+                    <h4 class="card-title text-justify"><b>Q.Design your content data model and discuss the implications of your design choices with potential users of the system. 
+                    In general, there should be at least one category of user-submitted content with authoring workflow specific to your project and at least 
+                    one question and answer forum. However, the specifics will be very dependent on your project’s requirements. 
+                    Document the design and your discussions on your site.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+              <ul>
+                <li>
+                  <h4><b>Admin</b></h4>
+                  Admin can perform CRUD operations i.e. create schedule, read schedule, update the schedule and delete the schedule.
+                  He/she can ban/unban users, view user stats.
+                </li>
+                <li>
+                  <h4><b>Student</b></h4>
+                  Student can view the final exam schedule.
+                </li>
+                <li>
+                  <h4><b>Professor</b></h4>
+                  Professor can view the final exam schedule.
+                </li>
+              </ul>
+              <center>
+                <%= image_tag 'user content model.png', class: 'img-fluid' %>
+              </center>
+            </h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 2 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+                    <h4 class="card-title text-justify"><b>Q.Specify the workflow for each kind of content on your site and discuss the 
+                    implications of your design choices with potential users of the system. Document the workflow design and 
+                    your discussions on your site. </b></h4>
+			  	</div>
+			  	<div class="card-body">
+				  	<h4 class="card-text text-justify"><b>Ans:</b>
+					  With a very straightforward project we planned on making our website pretty simple. As our project will be displaying the 
+					  AIT exams schedule we planned on having the link to this along with the sis account. On clicking the link the users can view the exam 
+					  schedule in a table format with their specific course codes and below it we will be displaying the all the Course titles, room number
+					  and some extra details that are required to be displayed. <br><br>
+					  We have only one displaying page where the operations can be performed only by the admin.
+			  		</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 3 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+                    <h4 class="card-title text-justify"><b>Q.Design your versioning system. What is the versioning system for each type of content? 
+                    Do you need a complete history of every version, or just a current version with the author of the last version? 
+                    Make sure you think carefully about the needs of the user community. Document the versioning design on your site.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+							For our straight forward application, we are not maintaining any versioning system seperately. During development, Git takes care of the version control.
+            		</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 4 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+                    <h4 class="card-title text-justify"><b>Q.Write UATs for a “skeletal” implementation of the workflow
+                    for at least one type of content on your site then get the UATs to pass. 
+                        Users should be able to get something up on your server and see it published.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text"><b>Ans:</b>
+						  <%= image_tag 'UAT.png', class: 'img-fluid' %>
+            </h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 5 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+                    <h4 class="card-title text-justify"><b>Q.Put your work online and commit to your Git repository when you are done. 
+                    As with Problem set 3, you should give us access to an administrator account so we can see your document workflow in action.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+					<h4 class="card-text text-justify"><b>Ans:</b>
+						Login details for admin account are <%= link_to 'here', 'https://docs.google.com/document/d/1JvYHzmZbHjJBeWc_T2mDZe0JUESjegptW4eOEjkzTEI/edit?usp=sharing' %>.<br>
+            (Note: Only accessable to Professor Matthew and TA Kiran).
+            		</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 6 -->
+</div>

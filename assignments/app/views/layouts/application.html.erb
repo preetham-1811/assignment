@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.css" />
+  <title>Assignments</title>
+  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg">
+
+  <!-- Brand/logo -->
+  <%= link_to 'Web Application Engineering', home_mainpage_path, class: 'btn btn-outline-light' %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Links -->
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto navbar-right mt-2 mt-lg-0" id="user_status">
+      <li class="nav-item nav-link">
+        <%= link_to 'Assignments',home_assignments_path, class: 'btn btn-outline-light' %>
+      </li>
+      <li class="nav-item nav-link">
+        <%= link_to 'Projects',home_project_path, class: 'btn btn-outline-light' %>
+      </li> 
+      <li class="nav-item nav-link">
+        <%= link_to 'Team',home_team_path, class: 'btn btn-outline-light' %>
+      </li> 
+
+      <% if user_signed_in? %>
+        <% if current_user.is_admin? %>
+          <li class="nav-item nav-link">
+            <%= link_to 'Exam Schedule', examscheduler_admin_path, class: 'btn btn-outline-light' %>
+          </li>
+        <% else %>
+          <li class="nav-item nav-link">
+            <%= link_to 'Exam Schedule', examscheduler_index_path, class: 'btn btn-outline-light' %>
+          </li>
+        <% end %>
+        <li class="nav-item nav-link text-white">
+          <%= current_user.first_name + ' ' + current_user.last_name %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+        </li>
+      <% else %>
+        <li class="nav-item nav-link">
+          <%= link_to "Sign in", new_user_session_path, class: 'btn btn-outline-light' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</nav>
+
+<!-- End of Navbar -->
+
+<% flash.each do |type, msg| %>
+  <div class="alert alert-warning">
+    <%= msg %>
+  </div>
+<% end %>
+
+<div class="container" >
+  <%= yield %>
+</div>
+<br><br><br><br>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

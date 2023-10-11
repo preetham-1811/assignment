@@ -1,0 +1,73 @@
+#=================================================
+#  create my_stocks table
+create table my_stocks (
+	symbol	varchar(20) not null,
+	n_shares integer not null,
+	date_acquired date not null
+);
+
+#=================================================
+#  my_stocks text file data
+MRF	200	09/13/2020
+NESTLEIND	300	08/13/2020
+PTT	400	09/13/2020
+PTTGC	500	09/13/2020
+RBULL	20	10/01/2019
+
+#=================================================
+#  create stock_prices table
+create table stock_prices as
+    select symbol, current_date as quote_date ,30 as price
+    from my_stocks;
+
+#=================================================
+#  create newly_acquired_stocks table
+create table newly_acquired_stocks (
+    symbol varchar(20) not null,
+    n_shares integer not null,
+    date_acquired date not null
+);
+
+
+
+#=================================================
+#  sum_ascii function
+Create or replace function sum_ascii(symbol text) returns integer as $$
+declare
+	sum integer ;
+	ch text ;
+Begin
+	sum := 0 ;
+	FOREACH ch IN ARRAY regexp_split_to_array(symbol, '')
+	LOOP
+		sum := sum + ASCII(ch) ;
+	END LOOP ;
+	return sum ;
+end;
+$$ language 'plpgsql';
+
+
+#=================================================
+#  portfolio function
+CREATE or REPLACE FUNCTION portfolio() returns setof integer as
+'
+DECLARE
+my_cursor CURSOR FOR
+SELECT
+	m.symbol,
+	m.n_shares,
+	s.price
+FROM
+	my_stocks as m
+INNER JOIN
+	stock_prices s ON m.symbol = s.symbol;
+
+BEGIN
+FOR my_record IN my_cursor
+LOOP
+return next my_record.n_shares * my_record.price;
+END LOOP;
+return;
+END
+'
+language 'plpgsql';

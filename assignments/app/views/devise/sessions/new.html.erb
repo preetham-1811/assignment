@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2>Log in</h2>
+      <hr>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <!--  <div class="field">-->
+      <!--    <%#= f.label :email %><br />-->
+          <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <!--  </div>-->
+
+        <div class="field form-group">
+          <%= f.label 'user id' %><br />
+          <%= f.text_field :uid, autofocus: true, autocomplete: "uid", class: "form-control", placeholder: "st123456" %>
+        </div>
+
+        <div class="field form-group">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+        </div>
+        <br>
+        <div class="actions mb-4 text-center">
+          <b><%= f.submit "Log in", class: 'btn btn-primary btn-block' %></b>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

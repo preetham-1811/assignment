@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Your Exam Schedule for this Semester</h1>
+            <% if current_user.is_admin? %>
+              <%= link_to "<button class='btn btn-primary' type='button'>Admin View</button>".html_safe, examscheduler_admin_path %>
+            <% end %>
+          <%= link_to 'View Full Schedule', examscheduler_fullschedule_path, class: 'btn btn-primary' %>
+            <hr>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">CourseId</th>
+                    <th scope="col">RoomId</th>
+                    <th scope="col">Exam day</th>
+                    <th scope="col">Exam time</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @schedules.each_with_index do | s,index | %>
+                    <tr>
+                      <th scope="row"> <%= index+1 %></th>
+                    <% if @schedules %>
+                        <td><%= s.course.course_name %></td>
+                        <td><%= s.room.room_name %></td>
+                        <td><%= s.start_time.strftime("%d %B %Y") %></td>
+                        <td><%= s.start_time.strftime("%I:%M %p") %> - <%=s.end_time.strftime("%I:%M %p") %></td>
+                    <% else %>
+                        Display none
+                    <% end %>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

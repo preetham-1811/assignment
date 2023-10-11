@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: '1'
+  author_name: 'author1'
+  category: 'life'
+  quote: 'my quote on life'
+
+two:
+  id: '2'
+  author_name: 'author2'
+  category: 'inspiration'
+  quote: 'my quote is my inspiration'

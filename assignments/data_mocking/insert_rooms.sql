@@ -1,0 +1,10 @@
+insert into Rooms (room_name,building_name,floor,seat,is_active,created_at,updated_at) values('TC103','Telecomunication',1,40,true,'2019-10-24T23:47:18Z','2019-10-24T23:47:18Z');
+insert into Rooms (room_name,building_name,floor,seat,is_active,created_at,updated_at) values('TC102','Telecomunication',1,30,true,'2019-10-24T23:47:18Z','2019-10-24T23:47:18Z');
+insert into Rooms (room_name,building_name,floor,seat,is_active,created_at,updated_at) values('TC202','Telecomunication',2,30,true,'2019-10-24T23:47:18Z','2019-10-24T23:47:18Z');
+insert into Rooms (room_name,building_name,floor,seat,is_active,created_at,updated_at) values('TC203','Telecomunication',2,30,true,'2019-10-24T23:47:18Z','2019-10-24T23:47:18Z');
+insert into Rooms (room_name,building_name,floor,seat,is_active,created_at,updated_at) values('TC204','Telecomunication',2,30,true,'2019-10-24T23:47:18Z','2019-10-24T23:47:18Z');
+insert into Rooms (room_name,building_name,floor,seat,is_active,created_at,updated_at) values('CS103','CSIM',1,15,true,'2019-10-24T23:47:18Z','2019-10-24T23:47:18Z');
+insert into Rooms (room_name,building_name,floor,seat,is_active,created_at,updated_at) values('CS106','CSIM',1,40,true,'2019-10-24T23:47:18Z','2019-10-24T23:47:18Z');
+insert into Rooms (room_name,building_name,floor,seat,is_active,created_at,updated_at) values('CS201','CSIM',2,30,true,'2019-10-24T23:47:18Z','2019-10-24T23:47:18Z');
+insert into Rooms (room_name,building_name,floor,seat,is_active,created_at,updated_at) values('CS203','CSIM',2,30,true,'2019-10-24T23:47:18Z','2019-10-24T23:47:18Z');
+insert into Rooms (room_name,building_name,floor,seat,is_active,created_at,updated_at) values('CS204','CSIM',2,30,true,'2019-10-24T23:47:18Z','2019-10-24T23:47:18Z');

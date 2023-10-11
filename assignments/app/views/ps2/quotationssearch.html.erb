@@ -1,0 +1,18 @@
+<div class="container-fluid"><br>
+	<%= form_tag ps2_quotationssearch_path,:method=>'get' do %>
+
+	  Quote <%= text_field_tag :search,params[:search] %>
+	  <%= submit_tag 'Search' %>
+	<% end %>
+</div> 
+<hr/>
+<div class="container-fluid">
+	<h3>Quotations</h3>
+	<ul>
+	  <% for quotation in @quotations %>
+	    <li><%= h quotation.author_name %>: <%= h quotation.quote %></li>
+	  <% end %>
+	</ul>
+
+	<%= link_to 'BACK', ps2_quotations_path, class:'btn btn-outline-warning' %>
+</div>

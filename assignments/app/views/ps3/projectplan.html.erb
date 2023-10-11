@@ -1,0 +1,461 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-9 col-md-9 col-12">
+			<h1><u><i><center>Plan Of Our Project</center></i></u></h1>
+		</div>
+		<div class="col-lg-3 col-md-3 col-12"><br>
+			<u><b><center><%= link_to 'Back' , home_project_path, class: 'btn btn-warning' %></center></b></u>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.What will people be able learn about in the community that you’re building? Alternatively, if you are automating some collaborative workflow, what work will people accomplish with your system? </b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+					We are automating the final exam scheduling.
+					Secretary of the department will be benefited from the system as it will check and fix the dates of exams without manual effort.
+					Students, lecturers will be able to see the schedule.
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.What do you want people to say about your service after a visit? </b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+					Secretary should say that it schedules the final exams properly so that there is no overlapping of exams
+					and students are comfortable and well informed about the schedule.
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.What are the relevant distinct user classes?</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+					There are three roles of user in this system which are administrator(secretary), student, instructor.
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.What should a user on a smartphone be able to do?</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+					A user on a smartphone will be able to access the website where
+					he/she can login and see a digital board showing the venue and time of each exam.
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+
+<!-- End of question 1 -->
+
+	<h2><u><i>Users Profile</i></u></h2>
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+            <h4 class="card-title"><b>Admin</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4>
+              <div class="text-center">
+                <%= image_tag 'admin.jpeg', class: 'img-fluid' %>
+              </div>
+              <table class="table">
+                <tbody>
+                <tr>
+                  <th scope="row">Name</th>
+                  <td>Emma</td>
+                </tr>
+                <tr>
+                  <th scope="row">Age</th>
+                  <td>34</td>
+                </tr>
+                <tr>
+                  <th scope="row">Occupation</th>
+                  <td>Secretary</td>
+                </tr>
+                <tr>
+                  <th scope="row">Martial status</th>
+                  <td>Married</td>
+                </tr>
+                <tr>
+                  <th scope="row">Housing situation</th>
+                  <td>Permanent house</td>
+                </tr>
+                <tr>
+                  <th scope="row">Income</th>
+                  <td>200 thb</td>
+                </tr>
+                </tbody>
+              </table>
+              <p>
+                <b>User's short-term and long-term goals</b><br>
+                To add/remove students, courses and each student's courses, view the schedule.
+              </p>
+              <p>
+                <b>The immediate questions that this user will bring to the site</b><br>
+                Is the schedule valid and good enough?
+              </p>
+              <p>
+                <b>The kind of computer equipment and connection in this person’s house</b><br>
+                Windows 10 pc.
+              </p>
+            </h4>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><b>Student</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4>
+              <div class="text-center">
+                <%= image_tag 'student.png', class: 'img-fluid' %>
+              </div>
+              <table class="table">
+                <tbody>
+                <tr>
+                  <th scope="row">Name</th>
+                  <td>Mark</td>
+                </tr>
+                <tr>
+                  <th scope="row">Age</th>
+                  <td>24</td>
+                </tr>
+                <tr>
+                  <th scope="row">Occupation</th>
+                  <td>Student</td>
+                </tr>
+                <tr>
+                  <th scope="row">Martial status</th>
+                  <td>Not married</td>
+                </tr>
+                <tr>
+                  <th scope="row">Housing situation</th>
+                  <td>Rental dorm</td>
+                </tr>
+                <tr>
+                  <th scope="row">Income</th>
+                  <td>None</td>
+                </tr>
+                </tbody>
+              </table>
+              <p>
+                <b>User's short-term and long-term goals</b><br>
+                To view the easy to follow exam schedule.
+              </p>
+              <p>
+                <b>The immediate questions that this user will bring to the site</b><br>
+                Are any of my exams coinciding?
+              </p>
+              <p>
+                <b>The kind of computer equipment and connection in this person’s house</b><br>
+                Desktop, laptop, tab, mobile.
+              </p>
+            </h4>
+			  	</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-4 col-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><b>Lecturer</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4>
+              <div class="text-center">
+                <%= image_tag 'lecturer.jpg', class: 'img-fluid', style: 'height:224px' %>
+              </div>
+              <table class="table">
+                <tbody>
+                <tr>
+                  <th scope="row">Name</th>
+                  <td>Jacob</td>
+                </tr>
+                <tr>
+                  <th scope="row">Age</th>
+                  <td>40</td>
+                </tr>
+                <tr>
+                  <th scope="row">Occupation</th>
+                  <td>Teaching</td>
+                </tr>
+                <tr>
+                  <th scope="row">Martial status</th>
+                  <td>Married</td>
+                </tr>
+                <tr>
+                  <th scope="row">Housing situation</th>
+                  <td>Permanent house</td>
+                </tr>
+                <tr>
+                  <th scope="row">Income</th>
+                  <td>300 thb</td>
+                </tr>
+                </tbody>
+              </table>
+              <p>
+                <b>User's short-term and long-term goals</b><br>
+                To view all exams schedule and their own course exams schedule.
+              </p>
+              <p>
+                <b>The immediate questions that this user will bring to the site</b><br>
+                Is the schedule valid and good enough?
+              </p>
+              <p>
+                <b>The kind of computer equipment and connection in this person’s house</b><br>
+                Desktop, laptop, tab, phone.
+              </p>
+            </h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+
+	<!-- End of question 2 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.For each class of user identified in Exercise 1a, produce a textual or graphical usage scenario for how that user will experience your service. </b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4>
+              <%= image_tag 'usecase.png', class: 'img-fluid' %>
+            </h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 3 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Evaluate offline alternatives. You ought to have a good reason for building an information system. You need a convincing answer for why we need this system rather than a book, a pencil, and paper. Explain the available alternatives and explain the best features of these alternatives. Justify why your system is necessary. </b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+					Secretary schedules the dates of final exams manually in the excel sheet.
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 4 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Evaluate online alternatives. Find the best existing online communities in your subject area. Note how closely they conform to the six elements of sustainability (magnet content, collaboration, searching and browsing capabilities, delegated moderation, means of removing bozos, and means for extending the community. Also write down anything strikingly good or bad about the registration process and the mechanisms of collaboration, e.g., in discussion forums, comments on articles, and chat rooms. Look for voice and mobile interfaces. If present, try them out. Look for evidence of personalization and direct controls over preferences. </b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+					Exam scheduling websites like
+					<%= link_to'onlineexamhelp', 'https://onlineexamhelp.eklavvya.in/category/online-exam-scheduling-management/' %>
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 5 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Identify where the magnet content for your system is going to come from.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+					The magnet content of our application will be coming from the secretary of the department.
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 6 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Decide on hostname and figure out DNS registration procedures. Be sure to look into the options for hosting of your web site. Ideally, you should all have a real hostname for your system, pointing to your CSIM server, by the end of the semester. At the end of the semester, you should also be ready to place your site at a more permanent home. Please include a plan for how you will do this. Note that AIT, CSIM, or AIT SU could probably be pursuaded to host some of your groups’ sites. Others would be more appropriately hosted offsite.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+					We registered our production website’s domain name record at my.freenom.com. Domain name is examschedule.tk .
+					For the permanent server, in case we do not have the virtual server at CSIM, we plan to launch this website on the heroku.com which provide the resource following
+					<br><br>
+					CPU : 1 share<br>
+					Memory : 512 MB<br>
+					550 dyno hours<br>
+            		</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 7 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Describe the intellectual property rights of yourselves as developers, authors as contributors, and so on.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+					We will use a constraint based algorithm that can schedule jobs into time slots to schedule the exams and
+					we will provide a user friendly layout of the schedule on the website.
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 8 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Set up nightly dumps of your database using cron or equivalent.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+							<pre>
+					We backup the postgreSQL by shell script with trigger by cron. We want to keep the backup file for 7 days
+					Add cron to start the backup at 01.00 a.m.
+					0 1 * * * sh /home/deploy/bin/dailyBackup.sh
+					The dailyBackup.sh file
+					#!/bin/bash
+
+					############ configuration ################
+					today=`date +%Y%m%d`
+					retention=7
+					clientName=`hostname`
+					backupRoot=/home/deploy/backup/daily
+					todayPath=$backupRoot/$today
+					scriptFile=/home/deploy/bin/dailyBackup.sh
+
+					############# end of config ###############
+
+					processIsRunning=`ps ax | grep "sh $scriptFile" | grep -v grep | wc -l`
+					if [ $processIsRunning -le 2 ] ; then
+
+					if [ ! -d $todayPath ] ; then    # Check "daily" directory exits
+					mkdir -p $todayPath    # Not exits and make directory
+					chmod 777 $todayPath
+					fi
+
+					echo "----------------------------------"
+					echo "pg_dump backup all databases"
+					echo "----------------------------------"
+
+					pg_dumpall > $todayPath/web2_all_db.sql
+					tar cvjfP $todayPath/web2_all_db.sql.tar.bz2  $todayPath/web2_all_db.sql
+					rm -rf $todayPath/web2_all_db.sql
+					echo "postgres backup success"
+
+					echo "------------------------------------"
+					echo " delete old directory          "
+					echo "------------------------------------"
+					count=1
+					for file in `ls -r $backupRoot`
+					do
+					echo "$count: $file";
+					if [ $count -gt $retention ]; then
+					rm -rf $backupRoot/$file;
+					fi
+					count=`expr $count + 1`
+					done
+					fi
+							</pre>
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 9 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Set up a continuous integration system for your team’s development work. Jenkins is recommended. However, you may use any continuous integration solution you like as long as the essential features are implemented. You should have a regression test suite and at least a code coverage metric.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+					We plan on using Jenkins as the continuous integration framework as recommended.
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 10 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q. Set up Capistrano or equivalent to enable repeatable, one-command deployment to production.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b>
+						We can create a new repo directory 'exam schedule' in git and setup capistrano with it.
+						On the web2 csim server, configure the conf files in apache2 folder to host this directory 'exam schedule'.<br><br>
+						<%= link_to 'Capistrano setup', 'https://cis.ait.asia/course_offerings/9/capistrano-companion', class: 'btn btn-outline-info ml-5 mt-2'%>
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div>

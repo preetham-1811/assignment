@@ -1,0 +1,148 @@
+<br>
+<div class="container-fluid"> <!-- if you want this to be end to end just make it as container-fluid -->
+  	<div class="row">
+		<div class="col-md-10 col-12">
+			<h1>Problem Set 1</h1>
+		</div>
+		<div class="col-md-2 col-12">
+			<u><b><%= link_to 'Back to Assignments' , home_assignments_path, class: 'btn btn-warning' %></b></u>
+		</div>
+	</div>
+	<hr>
+	<!--<<ol type="1">
+	  <li><p style="text-align: justify;">Divide By Zero - <%= link_to 'DBZ', ps1_dbz_path%></p></li>
+	  <hr>
+	  <li><p style="text-align: justify;">News Article - <%= link_to 'Article' , ps1_article_path %></p></li>
+	</ol> -->
+</div>
+<div class="container" style="border-left: 6px solid #75D1D1;">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">1</span>  Website Scrapping</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify"><%= link_to 'Link to the web scraper page' , ps1_article_path %> <br>
+			 		<br>To scraping the content of website, we had to do research about CSS selector which is the patterns use to select the elements in HTML/CSS. We have found many tools or libraries to do that which are Nokogiri, Mechanize, and D3.js. These all tools refer to the html elements and CSS class id. In this solution, we were using Nokogiri library. The link to the solution was shown on the top:
+					<br></p>
+					Reference and credit :
+					<br>
+
+					1. <a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS selector</a>  <br>
+					2. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">Mozilla querySelector</a> <br>
+					3. <a href="https://nokogiri.org/">Nokogiri</a> :  <br>
+					4. <a href="https://d3js.org//">D3</a>  <br>
+					5. <a href="https://www.scrapingbee.com/blog/web-scraping-ruby/?fbclid=IwAR1CiblYUBdYFMqw760f71DQmKtN_JSAwdXHm65WNgZRFq7riT6MslEvqm4#parsing-html-with-nokogiri//">Web scraping guid line from www.scrapingbee.com</a>  <br>
+					6. <a href="https://www.foxnews.com">Foxnews</a>  <br>
+					7. <a href="https://www.nationthailand.com">www.nationthailand.com</a></p>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">2</span>  Divide By Zero</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify"><%= link_to 'Divide By Zero', ps1_dbz_path%><br>
+
+	        	<br> To do divide by zero exception, we researched about how to show the error on production. Found out that in config/environments/production.rb,
+	        	 there is "config.consider_all_requests_local" that is by default false so that it does not allow stack to show up in production mode. We can set
+	        	 true so that the stack is shown. And, to log "Divide by 0", we found out that every controller by default can access log directly using logger
+	        	 module by calling logger.error, logger.warn ( (debug|info|warn|error|fatal|unknown) different levels) which logs the content to logs/production.log
+	        	 in production mode.
+	        	</p>
+	        	<br>
+	        	Reference and credit :
+	        	<br>
+	        	1. <a href="https://stackoverflow.com/questions/11601484/rails-error-in-production-mode"> To show error in production mode</a><br>
+	        	2. <a href="https://rollbar.com/guides/where-are-ruby-errors-logged/">To log errors</a>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-12">
+			<div class="card">
+			  	<div class="card-header">
+			    	<h4 class="card-title"><span class="badge p-3" style="background-color: #005253">3</span>  XHTML Validator</h4>
+			  	</div>
+			  	<div class="card-body">
+				    <p class="card-text text-justify"><%= link_to 'XHTML Validator', "https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc="+request.original_url %> 
+	        			<br> We used the W3C Markup Validation Service to validate our page and added the link of it in the footer of every page to get its validation. Below are the links to the main source and our reference page. <br><br>
+    					1. <a href="https://validator.w3.org/"> W3C Validator</a><br>
+    					2. <a href="https://stackoverflow.com/questions/2165665/how-do-i-get-the-current-absolute-url-in-ruby-on-rails#:~:text=You%20can%20write%20request.,give%20you%20the%20full%20address">Stack overflow Reference</a>
+			  	</div>
+			</div>
+		</div>
+	</div>
+</div><!-- 
+	<table class="table table-bordered" >
+	    <thead>
+	      <tr>
+	      	<th style="width:50px;text-align: center;">S.No</th>
+	        <th style="width:200px;text-align: center;">Problem</th>
+	        <th style="text-align: center;">Solution</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	      	<td style="text-align: center;">1</td>
+	        <td>Website Scrapping</td>
+
+	        <td><p style="text-align: justify;"><%= link_to 'Link to the web scraper page' , ps1_article_path %> <br>
+						<br>To scraping the content of website, we had to do research about CSS selector which is the patterns use to select the elements in HTML/CSS. We have found many tools or libraries to do that which are Nokogiri, Mechanize, and D3.js. These all tools refer to the html elements and CSS class id. In this solution, we were using Nokogiri library. The link to the solution was shown on the top:
+						<br></p>
+						Reference and credit :
+						<br>
+
+						1. <a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS selector</a>  <br>
+						2. <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">Mozilla querySelector</a> <br>
+						3. <a href="https://nokogiri.org/">Nokogiri</a> :  <br>
+						4. <a href="https://d3js.org//">D3</a>  <br>
+						5. <a href="https://www.scrapingbee.com/blog/web-scraping-ruby/?fbclid=IwAR1CiblYUBdYFMqw760f71DQmKtN_JSAwdXHm65WNgZRFq7riT6MslEvqm4#parsing-html-with-nokogiri//">Web scraping guid line from www.scrapingbee.com</a>  <br>
+						6. <a href="https://www.foxnews.com">Foxnews</a>  <br>
+						6. <a href="https://www.nationthailand.com">www.nationthailand.com</a>  <br>
+					</td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">2</td>
+	        <td>Divide By Zero</td>
+	        <td><p style="text-align: justify;"><%= link_to 'Divide By Zero', ps1_dbz_path%><br>
+
+	        	<br> To do divide by zero exception, we researched about how to show the error on production. Found out that in config/environments/production.rb,
+	        	 there is "config.consider_all_requests_local" that is by default false so that it does not allow stack to show up in production mode. We can set
+	        	 true so that the stack is shown. And, to log "Divide by 0", we found out that every controller by default can access log directly using logger
+	        	 module by calling logger.error, logger.warn ( (debug|info|warn|error|fatal|unknown) different levels) which logs the content to logs/production.log
+	        	 in production mode.
+	        	</p>
+	        	<br>
+	        	Reference and credit :
+	        	<br>
+	        	1. <a href="https://stackoverflow.com/questions/11601484/rails-error-in-production-mode"> To show error in production mode</a><br>
+	        	2. <a href="https://rollbar.com/guides/where-are-ruby-errors-logged/">To log errors</a>
+	        	</td>
+	      </tr>
+	      <tr>
+	      	<td style="text-align: center;">3</td>
+	        <td>XHTML Validator</td>
+	        <td><%= link_to 'XHTML Validator', "https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc="+request.original_url %> 
+	        	<br> We used the W3C Markup Validation Service to validate our page and added the link of it in the footer of every page to get its validation. Below are the links to the main source and our reference page. <br><br>
+	        					1. Link to W3C Validator - <a href="https://validator.w3.org/"> https://validator.w3.org/</a><br>
+	        					2. Link to Reference - <a href="https://stackoverflow.com/questions/2165665/how-do-i-get-the-current-absolute-url-in-ruby-on-rails#:~:text=You%20can%20write%20request.,give%20you%20the%20full%20address">https://stackoverflow.com/questions/2165665/how-do-i-get-the-current-absolute-url-in-ruby-on-rails#:~:text=You%20can%20write%20request.,give%20you%20the%20full%20address</a></td>
+	      </tr>
+	    </tbody>
+	  </table> -->
+
+<!-- Footer -->
+
+<footer class="navbar footer fixed-bottom footer-dark footer-shadow content container-fluid navbar-dark bg-dark">
+  <%= link_to 'XHTML Validator', "https://validator.w3.org/nu/?showsource=yes&showoutline=yes&showimagereport=yes&doc="+request.original_url, class: 'btn btn-danger'%>
+</footer>
+
+<!-- End of Footer -->

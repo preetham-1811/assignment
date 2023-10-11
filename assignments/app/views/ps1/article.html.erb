@@ -1,0 +1,24 @@
+<br>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-10 col-12">
+			<h1>Article</h1>
+		</div>
+		<div class="col-md-2 col-12">
+			<u><b><%= link_to 'Back to Assignments' , root_path %></b></u>
+			<u><b><%= link_to 'Back' , ps1_ps1_path %></b></u>
+		</div>
+	</div>
+	<hr>
+	<br>
+	<p><img src="http://<%=@foxnews_img %>" width="400" height="150"  alt="foxnews image">  </p>
+	<h3><%= @foxnews_heading %> </h3>
+	<a href="<%= @foxnews_url %>" target="_blank">Read more from www.foxnews.com</a>
+	<br>
+	<br>
+	<br>
+
+	<p><img src="<%=@nationTH_img %>" width="400" height="200"  alt="nationTH image">  </p>
+	<h3><%= @nationTH_heading %> </h3>
+	<a href="<%= @nationTH_url %>" target="_blank">Read more from www.nationthailand.com</a>
+</div>

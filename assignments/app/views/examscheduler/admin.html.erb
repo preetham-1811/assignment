@@ -1,0 +1,143 @@
+<div class="container-fluid">
+    <div class="row justify content center">
+        <div class="col-md-7">
+            <h1>Admin</h1>
+            <%= link_to "<button class='btn btn-success' type='button'>Students View</button>".html_safe, examscheduler_index_path %>
+            <%= link_to "<button class='btn btn-warning' type='button'>View User Stats</button>".html_safe, controller: :examscheduler, action: :view_stats %>
+            <%= link_to "<button class='btn btn-info' type='button'>Manage Users</button>".html_safe, controller: :examscheduler, action: :manage_users %>
+            <%= link_to "<button class='btn btn-danger' type='button'>Ban Users</button>".html_safe, controller: :examscheduler, action: :ban_users %>
+            </h1>
+        </div>
+    </div>
+</div>
+<hr> 
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col-md-7">
+            <h3 style="font-weight: 700;">Exam Scheduler</h3>
+            <div class="card mb-5" id="incomplete-exam-datetime">
+                <div class="card-body" style="background-color: aliceblue;">
+                    <h6 style="font-weight: 600;">Exams require a valid Date. You cannot
+                        create exams for past date. Please enter valid Date.</h6>
+                </div>
+            </div>
+
+            <label>Select Exam Date</label>
+            <br>
+            <div id='calendar'></div>
+            
+        </div>
+        <br><br>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body" >
+                    <div class="card-title">
+                        <h4>Selected Dates</h4>
+                    </div>
+                    <div class="card-text" id="selected-dates-list">
+                    </div>
+                </div>
+            </div><br>
+          <%= button_tag "Submit", id:'submit', class:'btn btn-success' %>
+        </div>
+    </div>
+</div>
+
+<!--<script src="https://code.jquery.com/jquery-3.5.1.js"-->
+<!--    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js'></script>
+
+<script>
+    document.addEventListener("turbolinks:load", function() {
+
+      $("#exam-date").hide()
+      $("#incomplete-exam-datetime").hide()
+
+      $("#form-part-3-next").on('click', function (exam) {
+          exam.prexamDefault();
+          var date = $("#exam-date").val()
+          var time = $("#exam-time").val()
+
+          let today = new Date().toISOString().slice(0, 10)
+
+          if (date && time && date > today) {
+              $("#incomplete-exam-datetime").hide()
+              $("#form-part-3").hide()
+              $("#form-part-4").show()
+          }
+          else {
+              $("#incomplete-exam-datetime").show()
+          }
+      });
+
+      var prev_date_selection;
+      var dates = [];
+      $('#calendar').fullCalendar({
+
+          themeSystem: 'bootstrap4',
+          header: {
+              left: 'prev, next',
+              center: 'title',
+              right: 'today'
+          },
+          buttonText: {
+              prev: 'Previous',
+              next: 'Next',
+          },
+
+          dayClick: function (date, jsexam, view) {
+
+              var today = new Date()
+              if(+date <= +today){
+                  $("#incomplete-exam-datetime").show();
+                  return
+              }
+
+              $("#incomplete-exam-datetime").hide();
+              for(var i = 0;i<dates.length;i++) {
+                  console.log("Comparing", dates[i], date._d)
+                  console.log(+dates[i]== +date._d)
+                  if(+dates[i] == +date._d) {
+                      console.log('removing date -', date.format())
+                      dates.splice(i, 1);
+                      $(this).css('background-color', '#ffffff')
+                      $("#"+date.format()).next().remove()
+                      $("#"+date.format()).remove()
+                      return
+                  }
+
+              }
+
+              dates.push(date._d)
+
+              dates.sort(function(a, b) {
+                  return +a > +b;
+              });
+
+              console.log(dates)
+              html = "<b id ="+ date.format() +" >" + date.format() + "</b><br>"
+              $("#selected-dates-list").prepend(html)
+              $(this).css('background-color', '#faca29')
+          },
+      });
+
+      $('#submit').on('click', function (e){
+          e.preventDefault();
+          console.log(dates);
+          $.ajax({
+              type: 'post',
+              url: '/examscheduler/parseSchedule',
+              data: {dates: dates.map((d) => d.toJSON())},
+              success: function (data) {
+                  alert('Successfully Scheduled');
+              },
+              error: function (data) {
+                  alert('Could not schedule' );
+              }
+          });
+      });
+
+    });
+
+</script>

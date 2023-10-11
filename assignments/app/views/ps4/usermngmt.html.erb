@@ -1,0 +1,291 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-9 col-md-9 col-12">
+			<h1><u><i><center>Odds, Ends, and User Management</center></i></u></h1>
+		</div>
+		<div class="col-lg-3 col-md-3 col-12"><br>
+			<u><b><center><%= link_to 'Back' , home_project_path, class: 'btn btn-warning' %></center></b></u>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Issue tracker used for project? </b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <br><h4>
+						We used redmine for issue tracker which is hosted on the same server.</br>
+						You can find it <%= link_to 'here', 'https://web2.cs.ait.ac.th/redmine', target: '_blank' %>.
+            		</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 1 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+					<h4 class="card-title text-justify"><b>Q.All social Web applications have users, content, and some kind of user-to-content map. 
+					Specify what kind of information each of these areas will have in your application.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b><br>
+						<b>As a Student/Faculty, I would ...</b><br>
+						<ul>
+							<li>I could login with my id.</li>
+							<li>I could check the final exam schedule.</li>
+							<li>I could check the exam schedule for my courses.</li>
+						</ul>
+						<hr>
+						<b>As an Admin, I would ...</b><br>
+						<ul>
+							<li>I could do all the things that a normal user can.</li>
+							<li>I could check which students are registered to which courses.</li>
+							<li>I could ban/unban users.</li>
+							<li>I could add students to courses.</li>
+						</ul>
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 2 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+					<h4 class="card-title text-justify"><b>Q.Learn how to avoid SQL injection and XSS attacks in your development 
+					framework and document and follow your plan for the rest of the project. </b></h4>
+			  	</div>
+			  	<div class="card-body">
+				  	<h4 class="card-text text-justify"><b>Ans:</b><br>
+						<b>Avoid SQL Injection</b><br>
+							Sql injection basically works when attacker is able to insert his/her query which would be sql keywords that are directly executed in raw sql query the backend.<br>
+							Then he/she can access various data and update his/her privileges.<br>
+							To avoid this, the input taken from users is not directly used in the sql query.<br>
+							We would rather use parameterized queries and dynamic attribute-based finders.<br><br>
+							Ex:<br>
+							User.where("name = '#{params[:name]'") # SQL Injection!<br>
+							=><br>
+							User.where(["name = ?", "#{params[:name]}"]) # No SQL Injection
+						<hr>
+							<b>Avoid XSS attacks</b><br>
+							XSS attacks are Cross-Site Scripting attacks that occur when an attacker is able to send malicious code, generally in the form of a browser side script, to a different end user.<br>
+							Rails has a built-in XSS protection mechanism which automatically HTML escapes all the data being transferred
+							from Rails to HTML. HTML escaping substitutes HTML entities such as '<' and '>' with '& lt' and '& gt' so that the scripts "&ltscript>"  "&lt/script>" will be escaped.
+							Hence, whatever malicious code the attacker may post to the application will be HTML escaped and not get executed.
+						</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 3 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Audit password security</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b><br>
+              			We use 'devise' rails gem that takes care of securing the login, sign up.<br>
+						It uses 'Bycrypt' gem to encrypt the passwords in the database. It hashes the password.<br>
+						We also have confirm email verification on registration that ensures spam mails are not created on the server.
+            		</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 4 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Define your user data model.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+				    <h4 class="card-text text-justify"><b>Ans:</b><br>
+              <%= image_tag 'userdatamodel_0.png', class: 'img-fluid' %>
+              <ul>
+                <li>
+                  <b>User</b><br>
+                  Database consists of 4 tables as in the fig. User table represents the users of the AIT network.
+                  It supports 3 different roles i.e. students, professors and admins. It has other info first_name, middle_name and last_name.
+                  It also has is_active? which is used to ban/unban user account.
+                </li><br>
+                <li>
+                  <b>Courses</b><br>
+                  Course has a course code, the school, course title, exam duration. It has a foreign key that is email from the user table.
+                  Courses has a many-to-many relationship with User table through Register table. That is, a user has many courses and a course has many users.
+                </li><br>
+                <li>
+                  <b>Register</b><br>
+                  Register table is a join table for user and courses. It joins them using uid (users) and course_code (course).
+                </li><br>
+                <li>
+                  <b>Room</b><br>
+                  Room table is used to store the room, bulding, floor and no of seats in each room
+                </li>
+              </ul>
+            </h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 5 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Sketch your user registration and management page flow.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+					<h4 class="card-text"><b>Ans:</b>
+					<%= image_tag 'flowchart(1).png', class: 'img-fluid' %>
+            		</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 6 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+					<h4 class="card-title text-justify"><b>Q.Using the techniques of test-first and behavior-driven development we’ve studied in class and lab, 
+					build up the basic user registration and login pages. Set up SSL for the login page to prevent password sniffing, and set up SSL 
+					for all authenticated interaction if session hijacking is a concern.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+            <h4 class="card-text text-justify"><b>Ans:</b><br>
+              <ul>
+                <li>
+                  User registration and login are done using 'devise' gem in rails. We have added email confirmation when a new user wants to register.
+                </li>
+                <li>
+                  User can use forgot password to get a reset token to his/her mail. By default, the registered user will be a student and will only have access to non-admin pages.
+                </li>
+                <li>
+                  We added SSL for the website and forwarded http requests permanently to https. Hence, all the interactions will be authenticated.<br>
+                </li>
+              </ul>
+              (Note: We are trying ldap authentication to login using ait id and password. We will update this as soon as we complete it).
+            </h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 7 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Again using BDD, build the user administration pages. 
+					Make sure admin can 1) see recently registered users, 2) ban a user, and 3) see statistics on user registrations.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+					<h4 class="card-text text-justify"><b>Ans:</b>
+					<center>
+						<%= image_tag 'bdd 1.png', class: 'img-fluid' %><hr>
+						<%= image_tag 'bdd 2.png', class: 'img-fluid' %><hr>
+						<%= image_tag 'bdd 3_1.png', class: 'img-fluid' %>
+						<%= image_tag 'bdd 3_2.png', class: 'img-fluid' %>
+					</center>
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 8 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+					<h4 class="card-title text-justify"><b>Q.Use your issue tracker and CI server to their full potential. 
+					Start an issue in the issue tracker beforeyou begin any work. Get email notification of broken builds running, 
+					and get the CI server to reporttest coverage and code quality metrics.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+					<h4 class="card-text text-justify"><b>Ans:</b>Below is the screenshot of our Issue Tracker where we have created the recent issues we have been working on as well 
+					the screenshot of the email notification that is sent to our registered email addresses with the recent issue created. <br><br>
+						<%= image_tag 'redmine.png', class: 'img-fluid' %> 
+						<%= image_tag 'emailss.png', class: 'img-fluid' %><br><br>
+						Link to Issue Tracker - <a href="https://web2.cs.ait.ac.th/redmine"> Redmine </a><br>
+						Link to CI server - <a href="https://web2.cs.ait.ac.th/jenkins"> Jenkins </a><br>
+            		</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 9 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+			    	<h4 class="card-title text-justify"><b>Q.Check your model for referential integrity and queries that take a long time and might require further optimization.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+					<h4 class="card-text text-justify"><b>Ans:</b>
+						Referential integrity is about the relationships between different tables. Rails active record provides dynamic finder methods that are simple to use and fast to execute.
+          			</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 10 -->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card" style="border-radius: 20px;border-left: 6px solid #75D1D1;">
+			  	<div class="card-header">
+					<h4 class="card-title text-justify"><b>Q.Put your work online and push to your Git repo when you are done. 
+					Your site should now contain an index pointing to your “Basics” solutions and the “Documentation” for your site. 
+					We should also be able to see that your code and documentation have been checked in to git. Please also provide a 
+					link to your latest database dump somewhere on your site so that we can see that you’ve done the data definitions 
+					for user registration and management.</b></h4>
+			  	</div>
+			  	<div class="card-body">
+					<h4 class="card-text"><b>Ans:</b>
+						The link for database dump is
+						<%= link_to "Me", "/database dump/web2_all_db.sql.tar.bz2" %>
+					</h4>
+			  	</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	
+	<!-- End of question 11 -->
+</div>
